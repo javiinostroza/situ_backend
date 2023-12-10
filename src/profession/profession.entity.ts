@@ -9,6 +9,8 @@ export class Profession {
   @Column()
   name: string;
 
-  @OneToMany(() => Professional, (professional) => professional.profession)
-  professionals: Professional[];
+  @OneToMany(() => Professional, (professional) => professional.profession, {
+    cascade: true,
+  })
+  public professionals: Professional[];
 }
