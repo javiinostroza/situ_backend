@@ -6,6 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ProfessionalModule } from './professional/professional.module';
 import { ProfessionModule } from './profession/profession.module';
 import { ScheduleModule } from './schedule/schedule.module';
+import { ReserveModule } from './reserve/reserve.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { ScheduleModule } from './schedule/schedule.module';
     ProfessionalModule,
     ProfessionModule,
     ScheduleModule,
+    ReserveModule,
   ],
   controllers: [AppController],
   providers: [AppService],
