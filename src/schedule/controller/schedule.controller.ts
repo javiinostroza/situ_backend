@@ -27,8 +27,15 @@ export class ScheduleController {
 
   @Post()
   async create(@Body() schedule: Schedule): Promise<Schedule> {
-    // console.log("shcedule: ", schedule)
-    // console.log('schedule professional id: ', schedule.professional)
+    if (schedule.startHour < 10) {
+      schedule.date = new Date(
+        schedule.date + 'T0' + schedule.startHour.toString() + ':00',
+      );
+    } else {
+      schedule.date = new Date(
+        schedule.date + 'T' + schedule.startHour.toString() + ':00',
+      );
+    }
     return await this.scheduleService.create(schedule);
   }
 
