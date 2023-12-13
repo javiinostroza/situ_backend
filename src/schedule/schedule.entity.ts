@@ -29,12 +29,12 @@ export class Schedule {
   @ManyToOne(() => Professional, (professional) => professional.schedules, {
     onDelete: 'CASCADE',
   })
-  professional: Professional;
+  public professional: Professional;
 
   @OneToOne(() => Reserve, (reserve) => reserve.schedule, {
     eager: true,
     onDelete: 'CASCADE',
   })
   @JoinColumn()
-  reserve: Reserve;
+  public reserve: Reserve;
 }

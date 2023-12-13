@@ -26,16 +26,10 @@ export class ScheduleController {
   }
 
   @Post()
-  async create(@Body() schedule: Schedule): Promise<Schedule[]> {
-    const startHour = schedule.startHour;
-    const endHour = schedule.endHour;
-    for (let index = startHour; index < endHour; index++) {
-      schedule.startHour = index;
-      schedule.endHour = index + 1;
-      await this.scheduleService.create(schedule);
-      schedule.id += 1;
-    }
-    return await this.scheduleService.getAll();
+  async create(@Body() schedule: Schedule): Promise<Schedule> {
+    // console.log("shcedule: ", schedule)
+    // console.log('schedule professional id: ', schedule.professional)
+    return await this.scheduleService.create(schedule);
   }
 
   @Delete(':id')

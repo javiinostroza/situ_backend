@@ -15,5 +15,5 @@ export class Reserve {
   @OneToOne(() => Schedule, (schedule) => schedule.reserve, {
     onDelete: 'CASCADE',
   })
-  schedule: Schedule;
+  public schedule: Schedule;
 }

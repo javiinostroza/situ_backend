@@ -6,7 +6,7 @@ export class Patient {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({ unique: true })
   rut: string;
 
   @OneToMany(() => Reserve, (reserve) => reserve.patient, {
