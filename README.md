@@ -136,3 +136,6 @@ Body raw (json)
 **DELETE** a Schedule
 
 `http://localhost:3001/schedule/1`
+
+## Diagramas
+![diagramas.png](diagramas.png)
