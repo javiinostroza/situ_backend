@@ -27,13 +27,14 @@ export class ScheduleController {
 
   @Post()
   async create(@Body() schedule: Schedule): Promise<Schedule> {
-    if (schedule.startHour < 10) {
+    const startHour = schedule.startHour + 3;
+    if (startHour < 10) {
       schedule.date = new Date(
-        schedule.date + 'T0' + schedule.startHour.toString() + ':00',
+        schedule.date + 'T0' + startHour.toString() + ':00',
       );
     } else {
       schedule.date = new Date(
-        schedule.date + 'T' + schedule.startHour.toString() + ':00',
+        schedule.date + 'T' + startHour.toString() + ':00',
       );
     }
     return await this.scheduleService.create(schedule);
