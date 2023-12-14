@@ -1,73 +1,138 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# SITU BACKEND
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
-
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Este módulo corresponde al backend de la app requerida para postular a Situ.
+Fue realizado en el framework Nestjs y utiliza una base de datos sqlite3.
 
 ## Installation
 
 ```bash
 $ npm install
 ```
-
 ## Running the app
 
 ```bash
 # development
 $ npm run start
+```
+ Correr [http://localhost:3001](http://localhost:3001) para acceder a la API o bien, ingresar a [https://situ-backend.onrender.com](https://situ-backend.onrender.com).
 
-# watch mode
-$ npm run start:dev
+ ## Link a la App
+ [https://situ-frontend-javiinostroza.vercel.app/](https://situ-frontend-javiinostroza.vercel.app/)
+ 
+ 
+## Documentación
 
-# production mode
-$ npm run start:prod
+
+### Patients
+**GET** all Patients 
+
+`http://localhost:3001/patient`
+
+**GET** a Patient
+
+`http://localhost:3001/patient/1`
+
+**POST** a Patient 
+
+```
+http://localhost:3001/patient
+
+Body raw (json)
+
+{
+    "rut": "99999999-9"
+}
 ```
 
-## Test
+**DELETE** a Patient
 
-```bash
-# unit tests
-$ npm run test
+`http://localhost:3001/patient/1`
 
-# e2e tests
-$ npm run test:e2e
+### Professionals
+**GET** all Professionals 
 
-# test coverage
-$ npm run test:cov
+`http://localhost:3001/professional`
+
+**GET** a Professional
+
+`http://localhost:3001/professional/1`
+
+**POST** a Professional 
+
+```
+http://localhost:3001/professional
+
+Body raw (json)
+
+{
+    "email": "cristianpomez@situ.cl",
+    "name": "Cristian Pomez",
+    "profession": 1
+}
 ```
 
-## Support
+**DELETE** a Professional
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+`http://localhost:3001/professional/1`
 
-## Stay in touch
+### Professions
+**GET** all Professions
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+`http://localhost:3001/profession`
 
-## License
+**GET** a Profession
 
-Nest is [MIT licensed](LICENSE).
+`http://localhost:3001/profession/1`
+
+**POST** a Profession
+
+```
+http://localhost:3001/profession
+
+Body raw (json)
+
+{
+    "name": "Enfermero(a)"
+}
+```
+
+**DELETE** a Profession
+
+`http://localhost:3001/profession/1`
+
+### Schedules
+**GET** all Schedules 
+
+`http://localhost:3001/schedule`
+
+**POST** a Schedule 
+
+```
+http://localhost:3001/schedule
+
+Body raw (json)
+{
+    "date": "2023-12-10", //AAA-MM-DD
+    "startHour": 14,
+    "endHour": 20,
+    "professional": 4
+}
+```
+
+**GET** a Schedule
+
+`http://localhost:3001/schedule/1`
+
+**PUT** a Schedule
+```
+http://localhost:3001/schedule/1
+
+Body raw (json)
+{
+   available: false
+}
+```
+
+**DELETE** a Schedule
+
+`http://localhost:3001/schedule/1`
